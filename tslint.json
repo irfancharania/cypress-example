@@ -1,0 +1,57 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "only-arrow-functions": [
+      false
+    ],
+    "indent": [
+      true,
+      "spaces",
+      4
+    ],
+    "max-line-length": [
+      true,
+      140
+    ],
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-duplicate-variable": true,
+    "no-unused-variable": false,
+    "no-unused-expression": false,
+    "object-literal-sort-keys": false,
+    "one-line": [
+      true,
+      "check-catch",
+      "check-else",
+      "check-finally",
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ],
+    "semicolon": true,
+    "trailing-comma": false,
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "variable-name": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator"
+    ]
+  }
+}
