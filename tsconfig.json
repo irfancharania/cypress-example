@@ -24,7 +24,7 @@
     ]
   },
   "include": [
-    "cypress/**/*.ts"
+    "cypress/**/*.ts", "cypress/integration/test3.spec.js", "cypress/integration/test2.spec.js", "cypress/integration/test.spec.js"
   ],
   "exclude": [
     "node_modules"

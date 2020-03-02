@@ -19,11 +19,28 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-const addContext = require('mochawesome/addContext')
+const addContext = require('mochawesome/addContext');
 
 Cypress.on('test:after:run', (test, runnable) => {
     if (test.state === 'failed') {
-        const screenshotFileName = `${runnable.parent.title} -- ${test.title} (failed).png`
-        addContext({ test }, `screenshots/${Cypress.spec.name}/${screenshotFileName}`)
+        let item = runnable;
+        const nameParts = [runnable.title];
+
+        while (item.parent) {
+            nameParts.unshift(item.parent.title);
+            item = item.parent;
+        }
+
+        if (runnable.hookName) {
+            nameParts.push(`${runnable.hookName} hook`);
+        }
+
+        const fullTestName = nameParts
+            .filter(Boolean)
+            .join(' -- ');
+
+        const imageUrl = `screenshots/${Cypress.spec.name}/${fullTestName} (failed).png`;
+
+        addContext({ test }, imageUrl);
     }
-})
+});
